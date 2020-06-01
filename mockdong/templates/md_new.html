@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+<h1>사람 구하기</h1>
+
+
+<form action="{% url 'md_create' %}" method="POST">
+{% csrf_token %}
+<h3>제목</h3><input type="text" name="title">
+<br>
+<p>글 내용</p><textarea name="body" cols="30" rows="15"></textarea>
+<button type="submit">작성</button>
+</form> 
+{% endblock %}

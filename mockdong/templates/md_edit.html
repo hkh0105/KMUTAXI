@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
 <h1>사람 구하기</h1>
 
 <form action="{% url 'md_update' mockdongboard.id %}" method="POST">
@@ -10,3 +15,4 @@
 
 <button type="submit">작성</button>
 </form>
+{% endblock %}

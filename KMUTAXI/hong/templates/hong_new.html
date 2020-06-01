@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'projectbase.html' %}
+
+{% block head %}
+<title>택시잡기:홍대</title>
+{% endblock %}
+
+
+
+{% block content %}
     <h1>새로운 택시 잡기</h1>
     <form method="POST">
         
@@ -18,8 +19,5 @@
 
 
     </form>
-
+{% endblock %}
  
-    
-</body>
-</html>

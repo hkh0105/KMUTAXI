@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>택시잡기:홍대</title>
-</head>
-<body> 
-    <h3>홍대에서 택시 같이 타기</h3>
-    <hr>
-    <p>{{hong.pub_date}}</p>
-    <p>{{hong.body}}</p>
-    <a href="{%url 'hong_edit' hong.id%}">수정하기</a>
-    <a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
-    <a href="{%url 'hong_station'%}">목록으로</a>
+{% extends 'projectbase.html' %}
+
+{% block head %}
+<title>택시잡기:홍대</title>
+{% endblock %}
 
 
-    
-</body>
-</html>
+
+{% block content %}
+<h3>홍대에서 택시 같이 타기</h3>
+<hr>
+<p>{{hong.pub_date}}</p>
+<p>{{hong.body}}</p>
+<a href="{%url 'hong_edit' hong.id%}">수정하기</a>
+<a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
+<a href="{%url 'hong_station'%}">목록으로</a>
+{%endblock%}

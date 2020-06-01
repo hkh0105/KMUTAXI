@@ -1,0 +1,15 @@
+{% extends 'projectbase.html' %}
+{% block head %}
+<title>상세보기</title>
+{% endblock %}
+
+{% block content %}
+    <h1>국민대 택시 모여</h1>
+    <a href="{% url 'kmu_new' %}">새글 작성하기</a>
+    {% for km in kmuboards %}
+    <hr>
+    <a href="{%url 'kmu_detail' km.id%}">
+        <h2>{{km.title}}</h2>
+    </a>
+    {% endfor %}
+{% endblock %}

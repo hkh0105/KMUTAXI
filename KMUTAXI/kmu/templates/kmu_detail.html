@@ -1,0 +1,20 @@
+{% extends 'projectbase.html' %}
+{% block head %}
+<title>상세보기</title>
+{% endblock %}
+
+{% block content %}
+
+<h1>택시 모여</h1>
+<br>
+<br>
+<h2>{{kmuboard.title}}</h2>
+<hr>
+<p>{{kmuboard.pub_date}}</p>
+<hr>
+<p>{{kmuboard.body}}</p>
+<hr>
+<a href="{%url 'kmu_station' %}"> 목록가기 </a>
+<a href="{%url 'kmu_edit' kmuboard.id %}"> 수정하기 </a>
+<a href="{%url 'kmu_delete' kmuboard.id %}"> 삭제하기 </a>
+{% endblock %}

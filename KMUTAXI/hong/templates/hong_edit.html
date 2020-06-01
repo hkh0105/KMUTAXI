@@ -1,0 +1,19 @@
+{% extends 'projectbase.html' %}
+
+{% block head %}
+<title>택시잡기:홍대</title>
+{% endblock %}
+
+
+{% block content %}
+<h1>새로운 택시 잡기:수정</h1>{{hong}}
+<form method="POST" action="{% url 'hong_update' hong.id  %}">
+
+    {%csrf_token%}
+    정확한 위치와 시간: <input type="text" value="{{hong.title}}" name="title">
+    <br>
+    내용: <textarea name="body" id="" cols="30" rows="10">{{hong.body}}</textarea>
+    <br>
+    <button type="submit">다시모집하기</button>
+</form>
+{% endblock %}

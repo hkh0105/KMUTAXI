@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'projectbase.html' %}
+{% block head %}
+<title>상세보기</title>
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>국민대</title>
-</head>
-
-<body>
+{% block content %}
     <h1>국민대 택시 모여</h1>
     <a href="{% url 'kmu_new' %}">새글 작성하기</a>
     {% for km in kmuboards %}
@@ -16,8 +12,4 @@
         <h2>{{km.title}}</h2>
     </a>
     {% endfor %}
-
-
-</body>
-
-</html>
+{% endblock %}

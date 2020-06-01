@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 택시 모여</h1>
+    <br>
+    <br>
+    <h2>{{mockdongboard.title}}</h2>
+    <hr>
+    <p>{{mockdongboard.pub_date}}</p>
+    <hr>
+    <p>{{mockdongboard.body}}</p>
+
+    <a href="{%url 'md_edit' mockdongboard.id%}">수정하기</a>
+    <a href="{%url 'md_delete' mockdongboard.id%}">삭제하기</a>
+
+</body>
+</html>

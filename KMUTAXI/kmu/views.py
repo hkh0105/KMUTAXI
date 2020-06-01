@@ -11,7 +11,7 @@ def kmu_station(request):
 
 def detail(request, kmuboard_id):
     kmuboard = get_object_or_404(KMU, pk = kmuboard_id)
-    return render(request, 'detail.html', {'kmuboard':kmuboard})
+    return render(request, 'kmu_detail.html', {'kmuboard':kmuboard})
 
 def new(request):
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def new(request):
             return redirect('kmu_station')
     else:
         form = KmuForm()
-        return render(request, 'new.html', {'form':form})
+        return render(request, 'kmu_new.html', {'form':form})
 
 def create(request):
     new_kmuboard = KMU()
@@ -34,7 +34,7 @@ def create(request):
 
 def edit(request,kmuboard_id):
     edit_kmuboard = get_object_or_404(KMU, pk = kmuboard_id)
-    return render(request, 'edit.html',{'kmuboard':edit_kmuboard})
+    return render(request, 'kmu_edit.html',{'kmuboard':edit_kmuboard})
 
 def update(request,kmuboard_id):
     update_kmuboard = get_object_or_404(KMU, pk = kmuboard_id)

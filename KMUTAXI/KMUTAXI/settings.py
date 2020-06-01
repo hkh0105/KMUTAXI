@@ -28,15 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'kmu',
-=======
-<<<<<<< HEAD
     'mockdong'
-=======
+
     'account',
->>>>>>> 41c1c0d276a31b76b9a7456b05826855449c54e2
->>>>>>> 505e7d243d93ab80f0cfcaebfc58b5ef22f115b2
 ]
 
 MIDDLEWARE = [

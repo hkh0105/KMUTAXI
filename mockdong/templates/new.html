@@ -1,0 +1,14 @@
+
+
+<h1>사람 구하기</h1>
+
+<form action="{% url 'md_create' %}" method="POST">
+    {% csrf_token%}
+
+<h3>제목: <input type="text" name="title"></h3>
+<p>내용: <textarea name = "body" id ="" cols="30" rows="10">
+    사람 찾음
+</textarea></p>
+
+<button type="submit">작성</button>
+</form>

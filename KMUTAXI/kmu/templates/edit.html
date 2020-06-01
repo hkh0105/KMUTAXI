@@ -1,0 +1,13 @@
+<h1>글 수정하기</h1>
+
+<form action="{%url 'kmu_update' kmuboard.id %}" method = "POST">
+    {%csrf_token%}
+    제목:<input type="text" value = "{{kmuboard.title}}"name="title">
+    <br>
+    <br>
+    본문: <textarea name="body" id="" cols="30" rows="10">{{kmuboard.body}}</textarea>
+    <br>
+    <button type="submit">수정!</button>
+</form>
+
+ <!-- url하고 redirect는 뒤에 url에서 작성한name을 써줘야함! -->

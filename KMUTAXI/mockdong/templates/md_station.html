@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목동</title>
+</head>
+<body>
+    
+
+{% for md in mockdongboards %}
+<hr>
+<a href="{% url 'md_detail' md.id %}">{{md.title}}</a>
+{% endfor %}
+<a href="{% url 'md_new' %}">
+새글 작성
+</a>
+</body>
+</html>

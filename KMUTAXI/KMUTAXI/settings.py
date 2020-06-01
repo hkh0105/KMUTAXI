@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hong',
     'kmu',
-    'mockdong'
+    'mockdong',
     'account',
 ]
 

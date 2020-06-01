@@ -19,7 +19,7 @@ def detail(request,taxi_id): #class이름
 #새로작성할 글의 폼을 
 def new(request):
     if request.method =='POST':
-        form =HongdaeBoardModelForm(request,POST)
+        form =HongdaeBoardModelForm(request.POST)
         if form.is_valid():
             content = form.save(commit=False) #임시저장
             content.pud_date = timezone.now()

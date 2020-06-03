@@ -14,4 +14,27 @@
 <a href="{%url 'hong_edit' hong.id%}">수정하기</a>
 <a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
 <a href="{%url 'hong_station'%}">목록으로</a>
+<br>
+
+
+
+<form method='POST' action="{%url 'hong_comment_create' hong.id%}"> 
+    {%csrf_token %}
+    {{comment_form.as_p}}
+
+    <button type="submit">save</button>
+</form>
+{%for comment in comments%}
+
+<hr>
+
+    {{comment.body}}
+    작성자: {{comment.parents.username}}
+    <br>
+    {{comment.created_at}}
+    <br>
+    {{comment.updated_at}}
+    <br>
+    <a href="{% url 'hong_comment_delete' comment.id %}">댓글삭제</a>
+{%endfor%}
 {%endblock%}

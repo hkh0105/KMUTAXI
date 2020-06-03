@@ -15,4 +15,9 @@ class HongdaeBoardModel(models.Model):
     def summary(self):
         return self.body[:100] #100글자만 짤라줌
 
+class HongdaeComment(models.Model):
+    body=models.TextField()
+    parents=models.ForeignKey(HongdaeBoardModel,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 

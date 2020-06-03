@@ -7,11 +7,26 @@
 
 
 {% block content %}
-<h3>홍대에서 택시 같이 타기</h3>
+<br>
+<h7>홍대에서 택시 같이 타기</h7>
 <hr>
-<p>{{hong.pub_date}}</p>
+<div style="font-size: xx-large;">{{hong.title}}</div>
+<div style="text-align: right;">작성시간: {{hong.pub_date}}</div>
+<br>
 <p>{{hong.body}}</p>
-<a href="{%url 'hong_edit' hong.id%}">수정하기</a>
-<a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
-<a href="{%url 'hong_station'%}">목록으로</a>
+
+<div style="text-align: right;">
+    <a href="{%url 'hong_edit' hong.id%}">수정하기</a>
+
+</div>
+
+<div class="rows" style="text-align: right;">
+    <a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
+</div>
+
+<div class="rows" style="text-align:center;">
+    <a href="{%url 'hong_station'%}">목록으로</a>
+</div>
+
 {%endblock%}
+

@@ -8,20 +8,40 @@
 
 {% block content %}
 
-<h1>홍대 TAXI</h1>
-<a href="{%url 'hong_new'%}">새로운 택시 잡기</a>
-{%for hong in hongs%}
+<div class="container">
 
-<hr>
+    <div class="rows" style="margin-top: 50px;">
+        <h1>홍대 TAXI</h1>
 
-<a href="{%url 'hong_detail' hong.id %}">
-    {{hong.title}}
-    작성자: {{user.username}}
+    </div>
+    <div class="rows" style="text-align: right;">
+        <a href="{%url 'hong_new'%}">새로운 택시 잡기</a>
+    </div>
     <br>
-    {{hong.pub_date}}
-    <br>
-    {{hong.summary}}
-</a>
-{%endfor%}
+    <div calss="rows" style="text-align: 20px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">TAXI</th>
+                    <th scope="col">위치&시간</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">내용</th>
+                    <th scope="col">작성시간</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for hong in hongs%}
+                <tr>
+                    <th scope="row">{{ hong.id}} </th>
+                    <td><a href="{%url 'hong_detail' hong.id %}">{{ hong.title }}</a></td>
+                    <td>{{user.username}}</td>
+                    <td>{{hong.summary}}</td>
+                    <td>{{hong.pub_date}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock %}

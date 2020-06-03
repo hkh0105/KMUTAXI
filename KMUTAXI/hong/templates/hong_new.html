@@ -2,22 +2,56 @@
 
 {% block head %}
 <title>택시잡기:홍대</title>
+<style>
+    #mytitleclass
+    {
+    border: none;
+    background-color: white;
+    border-bottom: 2px solid black;
+    
+    }
+
+    #mybodyclass
+    {
+    border: none;
+    background-color: white;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    width:100%;
+        
+}
+
+.container{
+    width: 65%;
+}
+</style>
 {% endblock %}
 
 
 
 {% block content %}
-    <h1>새로운 택시 잡기</h1>
+    <br>
+    <h1 style="text-align:center ;">새로운 택시 잡기</h1>
+    <br>
     <form method="POST">
-        
         {% csrf_token %}
-        <table>
-            {{form}}
-        </table>
-      
-        <input class="btn btn-dark" type="submit" value="저장">
+        <div class="container">
+            <div class="rows">
+                <div class="input-group">
+                    <input required type="text" class="form-control" placeholder="위치&시간"  aria-label="Recipient's username" aria-describedby="button-addon2" name="title">
+                  </div>
+            </div>
+            
+            <div class="rows" style="margin-top: 40px;">
+            <textarea required placeholder="내용" name="body" id="mybodyclass" rows="8" ></textarea>
+            </div>
 
-
+            <div class="rows" style="margin-top: 20px;">
+                <input  class="btn btn-secondary btn-lg btn-block" type="submit" value="저장">
+            </div>
+        </div>
+        
+        
     </form>
 {% endblock %}
  

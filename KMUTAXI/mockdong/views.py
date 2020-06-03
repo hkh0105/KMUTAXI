@@ -11,10 +11,10 @@ def md_station(request):
 
 def detail(request,mockdongboard_id):
     mockdongboard = get_object_or_404(MockdongBoard, pk = mockdongboard_id)
-    return render(request, 'detail.html', {'mockdongboard':mockdongboard})
+    return render(request, 'md_detail.html', {'mockdongboard':mockdongboard})
 
 def new(request):
-    return render(request,'new.html')
+    return render(request,'md_new.html')
 
 def create(request):
     new_mockdongboard = MockdongBoard()
@@ -25,7 +25,7 @@ def create(request):
 
 def edit(request,mockdongboard_id):
     mockdongboard = get_object_or_404(MockdongBoard, pk = mockdongboard_id)
-    return render(request, 'edit.html',{'mockdongboard':mockdongboard})
+    return render(request, 'md_edit.html',{'mockdongboard':mockdongboard})
 
 def update(request,mockdongboard_id):
     edit_mockdongboard = get_object_or_404(MockdongBoard, pk = mockdongboard_id)

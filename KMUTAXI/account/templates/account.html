@@ -1,11 +1,16 @@
 {% extends 'accountbase.html' %}
+{% load crispy_forms_tags %}
+
 {% block head %}
 {% endblock %}
+
 {% block content %}
- 
+<div class="card" style="width: 50rem; align-self: center;">
+    <div class="card-body" >
+        
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form | crispy }}
         <button type="submit" class="btn btn-secondary btn-sm" >
             submit
         </button>
@@ -13,5 +18,7 @@
             reset
         </button>
     </form>
+    </div>
+  </div>
     
 {% endblock %}

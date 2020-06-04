@@ -1,11 +1,14 @@
 {% extends 'accountbase.html' %}
+{% load crispy_forms_tags %}
+
 {% block head %}
 {% endblock %}
+
 {% block content %}
  
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form | crispy }}
         <button type="submit" class="btn btn-secondary btn-sm" >
             submit
         </button>

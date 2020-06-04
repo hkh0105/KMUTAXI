@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block content %}
- 
+<div class="card" style="width: 50rem; align-self: center;">
+    <div class="card-body" >
+        
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
@@ -16,5 +18,7 @@
             reset
         </button>
     </form>
+    </div>
+  </div>
     
 {% endblock %}

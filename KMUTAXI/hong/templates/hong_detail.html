@@ -2,7 +2,23 @@
 
 {% block head %}
 <title>택시잡기:홍대</title>
-{% endblock %}
+<style>
+
+    .container{
+        width: 100%;
+    }
+
+    #commentbody{
+        width: 100%;
+
+    }
+
+    .commentbody{
+        width: 100%;
+        border: none;
+    }
+</style>
+{% endblock%}
 
 
 
@@ -10,24 +26,24 @@
 <br>
 <h5>홍대에서 택시 같이 타기</h5>
 <hr>
-<div style="font-size: xx-large;">{{hong.title}}</div>
+<div style="font-size: xx-large; margin-top:10px;">{{hong.title}}</div>
 <div style="text-align: right;">작성시간: {{hong.pub_date}}</div>
 <br>
 <p>{{hong.body}}</p>
 
-<div style="text-align: right;">
+<div style="text-align: right; margin-top:10px">
     <a href="{%url 'hong_edit' hong.id%}">수정하기</a>
 
 </div>
 
-<div class="rows" style="text-align: right;">
+<div class="rows" style="text-align: right; margin-top:10px">
     <a href="{%url 'hong_delete' hong.id%}">삭제하기</a>
 </div>
 
-<div class="rows" style="text-align:center;">
+<div class="rows" style="text-align:center; margin-top:10px">
     <a href="{%url 'hong_station'%}">목록으로</a>
 </div>
-
+    <br>
 
 
 
@@ -35,9 +51,13 @@
 
 <form method='POST' action="{%url 'hong_comment_create' hong.id%}"> 
     {%csrf_token %}
-    {{comment_form.as_p}}
-
-    <button type="submit">save</button>
+    <div class="container" style="width: 100%;">
+        <textarea required placeholder="댓글달기" name="body" id="commentbody" rows="3" ></textarea>
+    </div>
+    
+    <div style="text-align: center;">
+    <button type="submit">댓글 입력</button>
+    </div>
 </form>
 {%for comment in comments%}
 

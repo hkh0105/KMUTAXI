@@ -9,4 +9,6 @@ class HongdaeBoardModelForm(forms.ModelForm):
 class HongdaeCommentForm(forms.ModelForm):
     class Meta:
         model = HongdaeComment
+        body = forms.TextInput(attrs = {"id": "commentbody", "class":"commentbody"}) 
+    
         fields = ['body']

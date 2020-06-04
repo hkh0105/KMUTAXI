@@ -1,17 +1,54 @@
 {% extends 'accountbase.html' %}
 {% block head %}
+<style>
+  .taxi-spot {
+    font-family: TTTogether;
 
+  }
+
+  .taxi-title {
+    font-family: Cafe24Oneprettynight;
+  }
+</style>
 {% endblock %}
 {% block content %}
- 
+
 <div class="card mb-3">
-    <img src="https://kids.niehs.nih.gov/games/assets/movies/img794855.jpg" class="card-img-top" alt="..." height = "300px">
-    <div class="card-body">
-      <h1 class="card-title" style="font-family: TTTogether;">
+  <img src="https://kids.niehs.nih.gov/games/assets/movies/img794855.jpg" class="card-img-top" alt="..." height="300px">
+  <div class="card-body">
+    <h1 class="card-title" style="font-family: TTTogether;">
       KMU TAXI</h1>
-      <p class="card-text" weight=100 style="font-family: Cafe24Oneprettynight ;">국민대 학생을 위한 택시 서비스 입니다.</p>
-      <p class="card-text"><small class="text-muted"></small></p>
-    </div>
+    <p class="card-text taxi-title" weight=100 style="font-family: Cafe24Oneprettynight ;">국민대 학생을 위한 택시 서비스 입니다.</p>
+    <p class="card-text taxi-title"><small class="text-muted"></small></p>
   </div>
+</div>
+<div class="card-group">
+  <div class="card">
+    <img
+      src="https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2FMjAxOTEyMjBfNjkg%2FMDAxNTc2ODMzOTA3MjU4.oAJAXNum3YEHFYG4qxy2royDhSe2c4joSs1eS0UjFdsg.dQ--k6BS0iotOvnw07vffHeU1U8AlIKifNrS-ALs_N4g.JPEG%2FIHVqbGAuo3ZKpA85Du4XpS5vG2jk.jpg&type=b400"
+      class="card-img-top" alt="...">
+    <a class="card-body" href="{% url 'hong_station' %}">
+      <h5 class="card-title taxi-spot">홍대 택시모여</h5>
+      <p class="card-text taxi-title">홍대에서 국민대로 가는 택시 게시판입니다.</p>
+    </a>
+  </div>
+  <div class="card">
+    <img
+      src="http://blogfiles.naver.net/MjAyMDA2MDJfNTkg/MDAxNTkxMDgwMTA0ODE2.7xOSl2uG13Tx2Y_UEToQKF6K7x0cWlhU53obwMedWoAg.VG3fRZFuXnwShOK1rmUN8umONIuaXX2pChzlW-8BOE0g.JPEG.yfvhgybm/%BA%F1_%B1%F8_%284%29.jpeg"
+      class="card-img-top" alt="...">
+    <a class="card-body" href="{% url 'md_station' %}">
+      <h5 class="card-title taxi-spot">목동 택시모여</h5>
+      <p class="card-text taxi-title">목동에서 국민대로 가는 택시 게시판입니다.</p>
+    </a>
+  </div>
+  <div class="card">
+    <img src="http://imgnews.naver.net/image/082/2019/11/26/0000960860_001_20191126100201268.jpg" class="card-img-top"
+      alt="...">
+    <a class="card-body" href="{% url 'kmu_station' %}" >
+      <h5 class="card-title taxi-spot">국민대 택시모여</h5>
+      <p class="card-text taxi-title">국민대에서 타 지역으로 가는 택시 게시판입니다.</p>
+    </a>
+  </div>
+</div>
 
 {% endblock %}

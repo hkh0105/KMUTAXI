@@ -8,7 +8,7 @@
 
 {% block content %}
 <br>
-<h7>홍대에서 택시 같이 타기</h7>
+<h5>홍대에서 택시 같이 타기</h5>
 <hr>
 <div style="font-size: xx-large;">{{hong.title}}</div>
 <div style="text-align: right;">작성시간: {{hong.pub_date}}</div>
@@ -28,5 +28,28 @@
     <a href="{%url 'hong_station'%}">목록으로</a>
 </div>
 
-{%endblock%}
 
+
+
+
+
+<form method='POST' action="{%url 'hong_comment_create' hong.id%}"> 
+    {%csrf_token %}
+    {{comment_form.as_p}}
+
+    <button type="submit">save</button>
+</form>
+{%for comment in comments%}
+
+<hr>
+
+    {{comment.body}}
+    작성자: {{comment.parents.username}}
+    <br>
+    {{comment.created_at}}
+    <br>
+    {{comment.updated_at}}
+    <br>
+    <a href="{% url 'hong_comment_delete' comment.id %}">댓글삭제</a>
+{%endfor%}
+{%endblock%}

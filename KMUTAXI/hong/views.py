@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import HongdaeBoardModel
+from .models import HongdaeBoardModel,HongdaeComment
 from django.utils import timezone
-from .form import HongdaeBoardModelForm
+from .forms import HongdaeBoardModelForm,HongdaeCommentForm
 
 
 # Create your views here.
@@ -13,7 +13,9 @@ def hong(request):
                    #=blog_id
 def detail(request,taxi_id): #class이름
     hong = get_object_or_404(HongdaeBoardModel, pk = taxi_id)
-    return render(request, 'hong_detail.html',{'hong':hong})
+    comment_form = HongdaeCommentForm() 
+    comments = HongdaeComment.objects.all()
+    return render(request, 'hong_detail.html',{'hong':hong, 'comment_form':comment_form,'comments':comments})
     #db에서 id를 가져옴
 
 #새로작성할 글의 폼을 
@@ -53,6 +55,38 @@ def delete(request,texi_id):
     delete_hong = get_object_or_404(HongdaeBoardModel, pk = texi_id) 
     delete_hong.delete()
     return redirect('hong_station')
+
+
+#새로작성할 글의 폼을 
+def comment_create(request,texi_id):
+    if request.method =='POST':
+        form =HongdaeCommentForm(request.POST)
+        if form.is_valid():
+            content = form.save(commit=False) #임시저장
+            parents=get_object_or_404(HongdaeBoardModel, pk = texi_id)
+            content.parents= parents
+            content.save()
+            return redirect('hong_detail',texi_id)
+    else:
+        form = HongdaeCommentForm()
+        return render(request,'hong_new.html',{'form':form})
+
+
+def comment_edit(request,comment_id):
+    if request.method == "POST":
+        update_hong = get_object_or_404(HongdaeComment,pk=comment_id)
+        update_hong.title = request.POST['title']
+        update_hong.body=request.POST['body']
+        update_hong.save()
+        return redirect('hong_detail', update_hong.parents.id)
+
+    edit_hong=get_object_or_404(HongdaeComment,pk=comment_id)
+    return render(request,'hong_edit.html',{'hong':edit_hong})
+   
+def comment_delete(request,comment_id):
+    delete_hong = get_object_or_404(HongdaeComment, pk = comment_id) 
+    delete_hong.delete()
+    return redirect('hong_detail', delete_hong.parents.id)
 
 
 
